@@ -1,0 +1,340 @@
+.body-left {
+    background-color: #ffffff;
+    width: 178px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.body-left .sidebar {
+    height: 48px;
+    display: flex;
+    background-color: #38393d;
+    align-items: center;
+    justify-content: center;
+}
+
+.body-left .sidebar .toggle {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -424px -86px;
+}
+
+.body-left .sidebar .logo .img-icon {
+    height: 32px;
+}
+
+.body-left .menu {
+    position: relative;
+    flex: 1;
+    background-color: #393a3d;
+    padding-top: 14px;
+}
+
+.body-left .menu .menu-item {
+    line-height: 42px;
+    height: 42px;
+    border-left: 6px solid transparent;
+    padding-left: 8px;
+    color: #fff;
+    position: relative !important;
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.body-left .menu .menu-item:hover {
+    background-color: #616164;
+}
+
+.body-left .menu .menu-item:focus {
+    background: #616164 !important;
+    color: #ffffff !important;
+}
+
+.body-left .menu .menu-item .icon {
+    width: 24px;
+    height: 24px;
+}
+
+.body-left .menu .menu-item .icon-item-contain {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.body-left .menu .menu-item .item-name {
+    font-family: "MISA-Regular" !important;
+    font-size: 13px;
+}
+
+.body-left .menu .menu-item .icon.overview {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -30px -1628px;
+}
+
+.body-left .menu .menu-item .icon.cash {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -73px -1628px;
+}
+
+.body-left .menu .menu-item .icon.deposits {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -117px -1628px;
+}
+
+.body-left .menu .menu-item .icon.list-purchase {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -161px -1628px;
+}
+
+.body-left .menu .menu-item .icon.list-sell {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -204px -1628px;
+}
+
+.body-left .menu .menu-item .icon.invoice {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -249px -1628px;
+}
+
+.body-left .menu .menu-item .icon.warehouse {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -291px -1628px;
+}
+
+.body-left .menu .menu-item .icon.tools {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -336px -1628px
+}
+
+.body-left .menu .menu-item .icon.assets {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -378px -1630px
+}
+
+.body-left .menu .menu-item .icon.tax {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -423px -1630px
+}
+
+.body-left .menu .menu-item .icon.price {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -467px -1628px
+}
+
+.body-left .menu .menu-item .icon.general {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -510px -1628px
+}
+
+.body-left .menu .menu-item .icon.budget {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -378px -1659px
+}
+
+.body-left .menu .menu-item .icon.report {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -547px -1628px
+}
+
+.body-left .menu .menu-item .icon.financial-analysis {
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -204px -1664px
+}
+
+.body-right {
+    position: absolute;
+    left: 178px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #f4f5f6;
+}
+
+.body-right .header {
+    background-color: #ffffff;
+    width: 100%;
+    height: 48px;
+}
+
+.body-right .content {
+    background-color: #f4f5f6;
+    position: absolute;
+    top: 48px;
+    right: 0;
+    bottom: 0;
+    left: 20px;
+    overflow-y: auto;
+
+}
+
+
+.header-left {
+    float: left;
+}
+
+.header-left .icon.overview {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -843px -30px
+}
+
+.icon.chevron {
+    transform: rotate(90deg);
+    width: 14px;
+    height: 14px;
+    margin: 0 10px;
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -80px -360px;
+}
+
+.icon.account-chevron {
+    width: 14px;
+    height: 14px;
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -1076px -32px
+}
+
+.icon.bell {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -788px -30px
+}
+
+.icon.simple-question {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -731px -30px
+}
+
+.icon.chat {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -899px -30px
+}
+
+.icon.setting {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -675px -30px
+}
+
+.icon.category {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -568px -30px
+}
+
+.header-left .header-title {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-left .header-title .header-title-text {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #111;
+    padding-left: 10px;
+}
+
+.header-left .header-title .header-title-icon {
+    opacity: 0.5;
+    font-size: 16px;
+}
+
+.header-current-db-name {
+    padding-left: 7px;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: all .2s ease;
+    color: #111;
+}
+
+.header-current-db {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ebedf0;
+    padding: 0 12px;
+    border-radius: 40px;
+    margin-left: 15px;
+    font-size: 13px;
+    cursor: pointer;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.icon-header-current-db {
+    width: 8px;
+    height: 8px;
+    background-color: #4ea344;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.header-right {
+    float: right;
+    height: 100%;
+}
+
+.account-info {
+    padding-right: 20px;
+}
+
+.user-name {
+    align-items: center;
+    color: #111;
+    font-size: 14px;
+    display: flex;
+    margin-right: 8px;
+    font-weight: 600;
+}
+
+.account-info-contain {
+    padding: 0 17px !important;
+    display: flex;
+    height: 32px;
+    align-items: center;
+}
+
+.header-right .account {
+    float: left;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.header-right .account .user-ava {
+    background: #e2e2e2;
+    margin-right: 6px;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background: url(../img/Sprites.64af8f61.svg) no-repeat -352px -894px
+}
+
+.header-right .account .avatar {
+    width: 50px;
+    height: 51px;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: center;
+    background-image: url('../icon/Avatar.png');
+}
+
+.header-right .account .account-name {
+    margin: 0;
+}
+
+.header-right .account-setting {
+    float: right;
+    width: 50px;
+    height: 51px;
+    background-repeat: no-repeat;
+    background-size: 22px;
+    background-position: center;
+    background-image: url('../icon/option.png');
+}
+
+.vc-container {
+    border-radius: 0.5rem !important;
+}
+
+input:focus {
+    border-color: #2ca01c;
+    outline: none;
+}
