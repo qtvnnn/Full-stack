@@ -85,11 +85,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\Server\\MISA.Core\\MISA.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\MISA.AMIS\\Server\\MISA.Core\\MISA.Core.csproj",
       "projectName": "MISA.Core",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\Server\\MISA.Core\\MISA.Core.csproj",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\MISA.AMIS\\Server\\MISA.Core\\MISA.Core.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\Server\\MISA.Core\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\MISA.AMIS\\Server\\MISA.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

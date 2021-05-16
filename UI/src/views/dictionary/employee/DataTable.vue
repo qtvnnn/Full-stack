@@ -11,7 +11,7 @@
           role="button"
           v-on:click="btnAddOnClick"
         >
-          <div class="item-name">Thêm</div>
+          <div class="item-name">Thêm mới nhân viên</div>
         </a>
 
         <div class="alert alert-success alertToggleData" id="alert">
@@ -52,17 +52,17 @@
             <th class="first-column column-select-all" style="z-index: 2">
               <input type="checkbox" class="checkbox-select-item" />
             </th>
-            <th>MÃ NHÂN VIÊN</th>
-            <th>TÊN NHÂN VIÊN</th>
-            <th>GIỚI TÍNH</th>
-            <th>NGÀY SINH</th>
-            <th>SỐ CMND</th>
-            <th>CHỨC DANH</th>
-            <th>TÊN ĐƠN VỊ</th>
-            <th>SỐ TÀI KHOẢN</th>
-            <th>TÊN NGÂN HÀNG</th>
-            <th>CHI NHÁNH TK NGÂN HÀNG</th>
-            <th class="last-column">CHỨC NĂNG</th>
+            <th style="width: 150px">MÃ NHÂN VIÊN</th>
+            <th style="width: 250px">TÊN NHÂN VIÊN</th>
+            <th style="width: 120px">GIỚI TÍNH</th>
+            <th style="width: 150px">NGÀY SINH</th>
+            <th style="width: 200px">SỐ CMND</th>
+            <th style="width: 250px">CHỨC DANH</th>
+            <th style="width: 250px">TÊN ĐƠN VỊ</th>
+            <th style="width: 150px">SỐ TÀI KHOẢN</th>
+            <th style="width: 200px">TÊN NGÂN HÀNG</th>
+            <th style="width: 250px">CHI NHÁNH TK NGÂN HÀNG</th>
+            <th class="last-column" style="z-index: 2">CHỨC NĂNG</th>
           </tr>
         </thead>
         <tbody>
@@ -452,7 +452,6 @@ export default {
   color: #fff;
   padding: 8px 14px 8px 20px;
   height: 36px;
-  border-radius: 30px 30px 30px 30px;
   border: 1px solid transparent;
 }
 .content-header-right .btn-add-employee .item-name {
@@ -754,6 +753,10 @@ export default {
 }
 .column-function {
   padding: 5px 10px;
+  position: sticky !important;
+  right: 50px;
+  background: #fff;
+  border-left: 1px solid #c7c7c7 !important;
 }
 
 .column-function .contain-icon-dropdown {
@@ -843,7 +846,9 @@ export default {
 .last-column {
   border-right: none !important;
   z-index: 1;
+  right: 50px;
 }
+
 .contain-btn-funtion {
   display: flex;
   align-items: center;

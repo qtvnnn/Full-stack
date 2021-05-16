@@ -583,11 +583,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\Server\\MISA.CukCuk.WebAPIs\\MISA.CukCuk.WebAPIs.csproj",
-      "projectName": "MISA.CukCuk.WebAPIs",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\Server\\MISA.CukCuk.WebAPIs\\MISA.CukCuk.WebAPIs.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\MISA.AMIS\\Server\\MISA.CukCuk.WebAPIs\\MISA.AMIS.WebAPIs.csproj",
+      "projectName": "MISA.AMIS.WebAPIs",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\MISA.AMIS\\Server\\MISA.CukCuk.WebAPIs\\MISA.AMIS.WebAPIs.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\Server\\MISA.CukCuk.WebAPIs\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\MISA.AMIS\\Server\\MISA.CukCuk.WebAPIs\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -604,11 +604,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\Server\\MISA.Core\\MISA.Core.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\Server\\MISA.Core\\MISA.Core.csproj"
+            "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\MISA.AMIS\\Server\\MISA.Core\\MISA.Core.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\MISA.AMIS\\Server\\MISA.Core\\MISA.Core.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\Server\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\Server\\MISA.Infrastructure\\MISA.Infrastructure.csproj"
+            "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\MISA.AMIS\\Server\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\MISA.AMIS\\Server\\MISA.Infrastructure\\MISA.Infrastructure.csproj"
             }
           }
         }

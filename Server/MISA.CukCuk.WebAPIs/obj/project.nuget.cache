@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G/O0rtuQnFr0fyS56lvmW6nuacdBLYVVd11yfiDPseNTkVEPAtT0Mh2al8dGEpvQNw7YvRF33vKmQHcU92vBkQ==",
+  "dgSpecHash": "EiDZCoM61g8TnuiAeqDlTdYaA+RBIyrDOFGJWEgzBKjP5N+jI06J7kvSQ3prw8iOc59ZE8jikpq+QMUwqGEEHw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\Server\\MISA.CukCuk.WebAPIs\\MISA.CukCuk.WebAPIs.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\MISA.AMIS\\MISA.AMIS\\Server\\MISA.CukCuk.WebAPIs\\MISA.AMIS.WebAPIs.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.6\\microsoft.aspnetcore.jsonpatch.5.0.6.nupkg.sha512",

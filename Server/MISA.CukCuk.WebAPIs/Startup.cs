@@ -44,7 +44,7 @@ namespace MISA.AMIS.WebAPIs
                 });
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISA.CukCuk.WebAPIs", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISA.AMIS.WebAPIs", Version = "v1" });
             });
 
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
@@ -62,7 +62,7 @@ namespace MISA.AMIS.WebAPIs
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MISA.CukCuk.WebAPIs v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MISA.AMIS.WebAPIs v1"));
             }
             app.UseMiddleware<ErrorHandlingMiddleware>();
             app.UseHttpsRedirection();
