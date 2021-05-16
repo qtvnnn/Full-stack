@@ -245,6 +245,7 @@ export default {
   methods: {
     toTop() {
       $(".content").animate({ scrollTop: 0 }, 1);
+      $(".content").animate({ scrollLeft: 0 }, 1);
     },
     // sự kiện click làm mới dữ liệu trong table
     async btnResetTable() {
@@ -846,7 +847,7 @@ export default {
 .last-column {
   border-right: none !important;
   z-index: 1;
-  right: 50px;
+  right: 55px;
 }
 
 .contain-btn-funtion {
