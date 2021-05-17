@@ -23,6 +23,11 @@ namespace MISA.AMIS.WebAPIs.Controllers
             _departmentService = departmentService;
         }
 
+        /// <summary>
+        /// Method Get: Lấy một bản ghi phòng ban theo id
+        /// </summary>
+        /// <param name="id">Id phòng ban</param>
+        /// <returns>Phòng ban tương ứng</returns>
         [HttpGet("departmentById")]
         public IActionResult Search(Guid id)
         {

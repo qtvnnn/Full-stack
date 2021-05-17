@@ -20,10 +20,23 @@ namespace MISA.Core.Interfaces.Repository
         /// <returns>Dữ liệu đối tượng nhân viên</returns>
         Employee GetEmployeeByCode(string code);
 
+        /// <summary>
+        /// Lấy danh sách nhân viên kèm tên phòng ban
+        /// </summary>
+        /// <returns>Danh sách nhân viên kèm tên phòng ban</returns>
         IEnumerable<Employee> GetEmployeesWithDepartmentName();
 
+        /// <summary>
+        /// Lấy nhân viên theo tên nhân viên, mã nhân viên hoặc số điện thoại
+        /// </summary>
+        /// <param name="search">Tên nhân viên, mã nhân viên, số điện thoại</param>
+        /// <returns>Nhân viên tương ứng</returns>
         IEnumerable<Employee> GetEmployeeByCodeNamePhone(string search);
 
+        /// <summary>
+        /// Lấy mã nhân viên của nhân viên mới nhất được thêm vào hệ thống
+        /// </summary>
+        /// <returns>Mã nhân viên tương ứng</returns>
         string GetNewEmployeeCode();
     }
 }

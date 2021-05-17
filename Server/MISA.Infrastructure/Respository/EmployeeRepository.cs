@@ -21,18 +21,33 @@ namespace MISA.Infrastructure.Respository
         {
 
         }
+
+        /// <summary>
+        /// Lấy bản ghi nhân viên theo mã nhân viên
+        /// </summary>
+        /// <param name="code">Mã nhân viên</param>
+        /// <returns>Dữ liệu đối tượng nhân viên tương ứng</returns>
         public Employee GetEmployeeByCode(string code)
         {
             var res = _dbConnection.Query<Employee>("Proc_GetEmployeeByCode", new { EmployeeCode = code }, commandType: CommandType.StoredProcedure).FirstOrDefault();
             return res;
         }
 
+        /// <summary>
+        /// Join bảng Employee và Department để lấy Department Name tương ứng với nhân viên
+        /// </summary>
+        /// <returns>Danh sách nhân viên kèm tên phòng ban</returns>
         public IEnumerable<Employee> GetEmployeesWithDepartmentName()
         {
             var res = _dbConnection.Query<Employee>("Proc_GetEmployeesWithDepartmentName", commandType: CommandType.StoredProcedure);
             return res;
         }
 
+        /// <summary>
+        /// Lấy một bản ghi nhân viên theo mã nhân viên hoặc tên hoặc số điện thoại
+        /// </summary>
+        /// <param name="search">Mã nhân viên, tên nhân viên, số điện thoại</param>
+        /// <returns>Nhân viên tương ứng</returns>
         public IEnumerable<Employee> GetEmployeeByCodeNamePhone(string search)
         {
 
@@ -42,6 +57,10 @@ namespace MISA.Infrastructure.Respository
             return res;
         }
 
+        /// <summary>
+        /// Lấy mã nhân viên của nhân viên gần nhất được thêm vào hệ thống
+        /// </summary>
+        /// <returns>Mã nhân viên tương ứng</returns>
         public string GetNewEmployeeCode()
         {
             var sql = "SELECT e.EmployeeCode FROM Employee e ORDER BY e.EmployeeCode DESC LIMIT 1;";

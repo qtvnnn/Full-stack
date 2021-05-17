@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "7OfdKqloq14wDKHDob37I+QSi0eZUfnQFmWn40ag1EkTc7nFYhiXn4S5U1d1xhew3fwIpFdkt/DFoDwNkwVqOg==",
+  "dgSpecHash": "WONex0vwW70xd5sT7k+aeJglEYXSHN1Tg0FJrTuvn47dObwDHGBzuB8hgKVvEH9oY1Jp5wcNHWRSh7Pv//doYA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\ok\\MISA.AMIS\\Server\\MISA.Core\\MISA.Core.csproj",
+  "projectFilePath": "C:\\Users\\nnnang\\Desktop\\MISA.AMIS\\MISA.AMIS\\Server\\MISA.Core\\MISA.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Admin\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\mysqlconnector\\1.3.8\\mysqlconnector.1.3.8.nupkg.sha512"
+    "C:\\Users\\nnnang\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
+    "C:\\Users\\nnnang\\.nuget\\packages\\mysqlconnector\\1.3.8\\mysqlconnector.1.3.8.nupkg.sha512"
   ],
   "logs": []
 }

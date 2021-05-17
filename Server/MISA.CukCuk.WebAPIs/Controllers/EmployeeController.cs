@@ -23,6 +23,10 @@ namespace MISA.AMIS.WebAPIs.Controllers
             _employeeService = employeeService;
         }
 
+        /// <summary>
+        /// Lấy danh sach tất cả nhân viên kèm tên phòng ban
+        /// </summary>
+        /// <returns>Danh sách nhân viên kèm tên phòng ban</returns>
         [HttpGet("EmployeesWithDepartment")]
         public IActionResult GetEmployeesWithDepartmentName()
         {
@@ -30,6 +34,11 @@ namespace MISA.AMIS.WebAPIs.Controllers
             return Ok(entities);
         }
 
+        /// <summary>
+        /// Http Get: Tìm kiếm nhân viên theo mã nhân viên hoặc tên nhân viên hoặc số điện thoại
+        /// </summary>
+        /// <param name="search">Mã nhân viên, tên nhân viên hoặc số điện thoại</param>
+        /// <returns>Nhân viên tương ứng</returns>
         [HttpGet("employeeFilter")]
         public IActionResult Search(string search)
         {
@@ -37,6 +46,10 @@ namespace MISA.AMIS.WebAPIs.Controllers
             return Ok(entities);
         }
 
+        /// <summary>
+        /// Http Get: Lấy mã nhân viên của nhân viên mới nhất được thêm vào hệ thống
+        /// </summary>
+        /// <returns>Mã nhân viên mới tăng thêm một đơn vị ở phần số</returns>
         [HttpGet("newEmployeeCode")]
         public IActionResult GetNewEmployeeCode()
         {

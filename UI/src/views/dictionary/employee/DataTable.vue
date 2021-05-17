@@ -45,7 +45,12 @@
         class="table"
         width="100%"
         border="0"
-        style="width: max-content; background: #fff"
+        style="
+          width: max-content;
+          background: rgb(255, 255, 255);
+          border-collapse: separate;
+          border-spacing: 0;
+        "
       >
         <thead>
           <tr>
@@ -62,7 +67,12 @@
             <th style="width: 150px">SỐ TÀI KHOẢN</th>
             <th style="width: 200px">TÊN NGÂN HÀNG</th>
             <th style="width: 250px">CHI NHÁNH TK NGÂN HÀNG</th>
-            <th class="last-column" style="z-index: 2">CHỨC NĂNG</th>
+            <th
+              class="last-column"
+              style="z-index: 2; border-left: 1px solid #c7c7c7"
+            >
+              CHỨC NĂNG
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -217,7 +227,6 @@
         <span class="next-paging" v-on:click="toTop()">Sau</span>
       </div>
     </footer>
-    -->
     <Details
       @closePopup="closePopup"
       :isHide="isHideParent"
@@ -606,7 +615,7 @@ export default {
   display: none;
   align-items: center;
   top: 13px;
-  right: 115px;
+  right: 210px;
 }
 .textAlertData {
   margin-right: 20px;
@@ -842,7 +851,6 @@ export default {
   align-items: center !important;
   justify-content: center;
   padding-left: 11.5px !important;
-  border-bottom: none !important;
 }
 .last-column {
   border-right: none !important;

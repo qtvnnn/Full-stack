@@ -23,7 +23,7 @@
         <div class="account-info">
           <div class="account-info-contain">
             <div class="user-ava"></div>
-            <span class="user-name">Nguyễn Quang Minh</span>
+            <span class="user-name">Nguyễn Ngọc Năng</span>
             <div class="icon account-chevron"></div>
           </div>
         </div>
