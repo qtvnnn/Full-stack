@@ -49,7 +49,8 @@
           width: max-content;
           background: rgb(255, 255, 255);
           border-collapse: separate;
-          border-spacing: 0;
+          border-spacing: 0px;
+          margin-bottom: 3rem;
         "
       >
         <thead>
@@ -201,7 +202,7 @@
     <footer class="footer-table">
       <div class="footer-table-left">
         <span class="text-muted"
-          >Tổng số: <b class="total-record">1041</b> bản ghi</span
+          >Tổng số: <b class="total-record"></b> bản ghi</span
         >
       </div>
       <div class="footer-table-right">
@@ -304,6 +305,7 @@ export default {
         .get("https://localhost:44325/api/v1/Employees/EmployeesWithDepartment")
         .then((res) => {
           this.employees = res.data;
+          $('.total-record').text(res.data.length)
         });
 
       // get all department
@@ -392,6 +394,7 @@ export default {
       }, 1000);
     },
 
+    //hiển thị thông báo lỗi trùng mã nhân viên khi thêm hoặc sửa
     showAlertDuplicate(code) {
       $(".content").css("overflow", "hidden");
       $("body").append(
@@ -403,6 +406,7 @@ export default {
       $("#employeeCodeDuplicate").text(code);
     },
 
+    //event tắt thông báo trùng lỗi trùng mã nhân viên
     closeAlertDuplicate() {
       $(".content").css("overflow", "");
       $("#alertDuplicate").css("display", "none");

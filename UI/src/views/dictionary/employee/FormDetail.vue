@@ -65,28 +65,7 @@
   padding: 20px 32px;
   box-sizing: border-box;
 }
-.avatar-note {
-  font-size: 12px;
-  text-align: center;
-}
-.avatar-employee .el-avatar {
-  border: 1px solid #ccc;
-  width: 160px;
-  height: 160px;
-  margin: 0 auto;
-  border-radius: 50%;
-  cursor: pointer;
-  background-image: url(/assets/img/default-avatar.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-.currency-for-input {
-  position: absolute;
-  right: 40px;
-  line-height: 40px;
-  font-style: italic;
-}
+
 .label-required {
   color: red;
 }
@@ -94,9 +73,7 @@
   margin-bottom: 0px;
   margin-top: 1rem;
 }
-.hr-group-label {
-  margin: 0px;
-}
+
 .btn-save-form {
   background-color: #01b075;
   color: white;
@@ -680,6 +657,7 @@ export default {
       }
     },
 
+    //lấy value gender
     getValueGender() {
       return $("input[name='rd-gender']:checked").val();
     },
