@@ -84,7 +84,9 @@
             <td>{{ employee.EmployeeCode }}</td>
             <td>{{ employee.EmployeeName }}</td>
             <td>{{ genderString(employee.gender) }}</td>
-            <td>{{ employee.DateOfBirth | formatDate }}</td>
+            <td style="text-align: center">
+              {{ employee.DateOfBirth | formatDate }}
+            </td>
             <td>{{ employee.IdentityNumber }}</td>
             <td>{{ employee.EmployeePosition }}</td>
             <td>{{ employee.DepartmentName }}</td>
@@ -305,7 +307,7 @@ export default {
         .get("https://localhost:44325/api/v1/Employees/EmployeesWithDepartment")
         .then((res) => {
           this.employees = res.data;
-          $('.total-record').text(res.data.length)
+          $(".total-record").text(res.data.length);
         });
 
       // get all department
@@ -324,8 +326,8 @@ export default {
         "https://localhost:44325/api/v1/Employees/" + employeeId
       );
       console.log(response);
-      await this.initEmployee();
       this.showAlertData("Xóa một bản ghi nhân viên thành công");
+      await this.initEmployee();
     },
 
     // gọi api lấy mã nhân viên mới
@@ -340,11 +342,17 @@ export default {
     async getDataFilter(valueInput) {
       this.isLoading = true;
 
-      const employeesAPI = await axios.get(
-        `https://localhost:44325/api/v1/Employees/employeeFilter?search=${valueInput}`
-      );
-      console.log(employeesAPI);
-      this.employees = employeesAPI.data;
+      await axios
+        .get(
+          `https://localhost:44325/api/v1/Employees/employeeFilter?search=${valueInput}`
+        )
+        .then((res) => {
+          this.employees = res.data;
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
 
       this.isLoading = false;
     },
@@ -602,7 +610,7 @@ export default {
   float: left;
   z-index: 999;
   position: sticky;
-  width: calc(100% - 552.69px);
+  width: calc(100% - 540px);
   background: #fff;
 }
 .footer-table-right {
@@ -767,7 +775,7 @@ export default {
 }
 .column-function {
   padding: 5px 10px;
-  position: sticky !important;
+  /* position: sticky !important; */
   right: 50px;
   background: #fff;
   border-left: 1px solid #c7c7c7 !important;
@@ -859,7 +867,7 @@ export default {
 .last-column {
   border-right: none !important;
   z-index: 1;
-  right: 55px;
+  /* right: 55px; */
 }
 
 .contain-btn-funtion {
@@ -896,5 +904,9 @@ export default {
   position: sticky;
   left: 0;
   z-index: 3;
+}
+
+.modal-backdrop{
+  display: none !important;
 }
 </style>

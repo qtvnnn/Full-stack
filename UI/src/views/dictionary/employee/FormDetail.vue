@@ -635,7 +635,7 @@ export default {
             )
             .then((res) => {
               console.log(res.data);
-              this.showAlertData("Sử thông tin mô nhân viên thành công");
+              this.showAlertData("Sửa thông tin mô nhân viên thành công");
             })
             .catch((err) => {
               this.showAlertDuplicate(this.employee.EmployeeCode);
