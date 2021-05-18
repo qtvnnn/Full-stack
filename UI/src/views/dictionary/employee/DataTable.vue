@@ -237,6 +237,7 @@
       :initEmployee="initEmployee"
       :showAlertData="showAlertData"
       :showAlertDuplicate="showAlertDuplicate"
+      :btnAddOnClick = "btnAddOnClick"
       :requestStatus="requestStatus"
       :departments="departments"
     />
@@ -906,7 +907,4 @@ export default {
   z-index: 3;
 }
 
-.modal-backdrop{
-  display: none !important;
-}
 </style>

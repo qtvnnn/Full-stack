@@ -274,6 +274,7 @@ select:focus {
                   <div class="input-group">
                     <input
                       id="txtEmployeeCode"
+                      ref="txtEmployeeCode"
                       fieldName="EmployeeCode"
                       required
                       class="form-control require-not-null"
@@ -299,9 +300,14 @@ select:focus {
                       type="text"
                       required
                       v-model="employee.EmployeeName"
+                      @mouseover="mouseOver"
                     />
                   </div>
-                  <div class="alertToggleName" style="display: none">
+                  <div
+                    ref="alertToggleName"
+                    class="alertToggleName"
+                    style="display: none"
+                  >
                     <span class="textAlertName">Tên không được để trống.</span>
                   </div>
                 </div>
@@ -375,7 +381,7 @@ select:focus {
                           type="radio"
                           id="rd-male"
                           value="1"
-                          :checked="employee.gender === 1"
+                          v-model="employee.gender"
                         />
                         <label class="form-check-label">Nam</label>
                       </div>
@@ -386,7 +392,7 @@ select:focus {
                           type="radio"
                           id="rd-female"
                           value="0"
-                          :checked="employee.gender === 0"
+                          v-model="employee.gender"
                         />
                         <label class="form-check-label">Nữ</label>
                       </div>
@@ -397,7 +403,7 @@ select:focus {
                           type="radio"
                           id="rd-other"
                           value="2"
-                          :checked="employee.gender === 2"
+                          v-model="employee.gender"
                         />
                         <label class="form-check-label">Khác</label>
                       </div>
@@ -562,14 +568,14 @@ select:focus {
           <div class="dialog-footer-right">
             <button
               id="btnSave"
-              @click="saveEmployee"
+              @click="insertAndClose"
               class="btn btn-save-form btn-detail-dialog"
             >
               <i class="far fa-save"></i><span class="btn-text">Cất</span>
             </button>
             <button
               id="btnSave"
-              @click="saveEmployee"
+              @click="saveAndInputMoreEmployee"
               class="btn btn-save-form btn-detail-dialog btn second-right-button"
             >
               <i class="far fa-save"></i
@@ -592,18 +598,60 @@ export default {
     initEmployee: Function,
     showAlertData: Function,
     showAlertDuplicate: Function,
+    btnAddOnClick: Function,
     requestStatus: Number,
     departments: Array,
     positions: Array,
   },
   methods: {
+    
     // sự kiện đóng dialog input form
     btnCancelOnClick() {
       this.$emit("closePopup", true); //đóng dialog
       removeWarningEmpty(); // bỏ cảnh báo field input
-      $(".alertToggleName").css("display", "none");
+      this.$refs["alertToggleName"].classList.remove("display-block");
+      // $(".alertToggleName").css("display", "none");
       $(".alertToggleDepartment").css("display", "none");
       $(".alertToggleCode").css("display", "none");
+    },
+
+    //thêm mới nhân viên
+    async insertEmployee(employee, alert) {
+      await axios
+        .post("https://localhost:44325/api/v1/Employees", employee)
+        .then(() => {
+          this.showAlertData(alert);
+        })
+        .catch(() => {
+          this.showAlertDuplicate(employee.EmployeeCode);
+        });
+    },
+
+    //Cập nhật nhân viên
+    async updateEmployee(employee, alert) {
+      await axios
+        .put(
+          "https://localhost:44325/api/v1/Employees/" + employee.EmployeeId,
+          employee
+        )
+        .then(() => {
+          this.showAlertData(alert);
+        })
+        .catch(() => {
+          this.showAlertDuplicate(employee.EmployeeCode);
+        });
+    },
+
+    // sự kiện ấn nút cất
+    async insertAndClose() {
+      await this.saveEmployee();
+      await this.initEmployee(); // cập nhật lại dự liệu
+    },
+
+    // cất và thêm
+    async saveAndInputMoreEmployee() {
+      await this.saveEmployee();
+      await this.btnAddOnClick();
     },
 
     // tạo mới hoặc sửa thông tin nhân viên
@@ -611,42 +659,25 @@ export default {
       var count = countEmpty(); // đếm số input bắt buộc không hợp lệ
       if (count === 0) {
         this.$emit("closePopup", true); //đóng dialog
-        this.employee.DateOfBirth = validateDate(this.employee.DateOfBirth); // validate theo maxdate and mindate
-        this.employee.gender = this.getValueGender();
         if (this.requestStatus == 0) {
           //0: thêm mới nhân viên
-          await axios
-            .post("https://localhost:44325/api/v1/Employees", this.employee)
-            .then((res) => {
-              console.log(res.data);
-              this.showAlertData("Thêm mới nhân viên thành công");
-            })
-            .catch((err) => {
-              this.showAlertDuplicate(this.employee.EmployeeCode);
-              console.log(err);
-            });
+          await this.insertEmployee(
+            this.employee,
+            "Thêm mới nhân viên thành công"
+          );
         } else {
-          // sửa nhân viên
-          await axios
-            .put(
-              "https://localhost:44325/api/v1/Employees/" +
-                this.employee.EmployeeId,
-              this.employee
-            )
-            .then((res) => {
-              console.log(res.data);
-              this.showAlertData("Sửa thông tin mô nhân viên thành công");
-            })
-            .catch((err) => {
-              this.showAlertDuplicate(this.employee.EmployeeCode);
-              console.log(err);
-            });
+          //cập nhật nhân viên
+          await this.updateEmployee(
+            this.employee,
+            "Sửa thông tin mô nhân viên thành công"
+          );
         }
-        await this.initEmployee(); // cập nhật lại dự liệu
       } else {
         warningEmpty(); // cảnh báo các field input chưa hợp lệ
         if (!$("#txtFullName").val()) {
-          $(".alertToggleName").css("display", "block");
+          this.$refs["alertToggleName"].classList.add("display-block");
+
+          // $(".alertToggleName").css("display", "block");
         }
         if (!$("#txtEmployeeCode").val()) {
           $(".alertToggleCode").css("display", "block");
@@ -656,11 +687,6 @@ export default {
         }
       }
     },
-
-    //lấy value gender
-    getValueGender() {
-      return $("input[name='rd-gender']:checked").val();
-    },
   },
 
   data() {
@@ -669,9 +695,6 @@ export default {
 };
 
 $(document).ready(function () {
-  // set max date in datetimePicker
-  $("#dtDateOfBirth").prop("max", getMaxDate());
-
   // check input hợp lệ với sự kiện khi tab hoặc click ra khỏi field input
   $(document).on("blur", "#txtFullName", function () {
     // họ tên
@@ -695,12 +718,6 @@ $(document).ready(function () {
     if (!$(this).val()) {
       $(this).addClass("input-warning");
     }
-  });
-
-  $(document).on("blur", "#dtDateOfBirth", function () {
-    // ngày sinh
-    const a = validateDate($(this).val());
-    $(this).val(a); //nếu cố tình nhập thời gian vượt quá khoảng min max thì set lại giá trị min hoặc max
   });
 
   $(document).on("change", "#cbnDepartment", function () {
@@ -759,7 +776,6 @@ function countEmpty() {
   $(document)
     .find(".require-not-null")
     .each(function () {
-      console.log($(this).val());
       if (!$(this).val()) {
         count++;
       }
@@ -782,31 +798,5 @@ function warningEmpty() {
 // xóa cảnh báo các field input trống
 function removeWarningEmpty() {
   $(document).find(".input-warning").removeClass("input-warning");
-}
-
-// validate range date
-function validateDate(date) {
-  return date < $("#dtDateOfBirth").prop("min")
-    ? $("#dtDateOfBirth").prop("min")
-    : date > getMaxDate()
-    ? getMaxDate()
-    : date;
-}
-
-// lấy ngày hiện tại
-function getMaxDate() {
-  let date = new Date();
-  let month = date.getMonth() + 1;
-  let day = date.getDate();
-  let dateNow =
-    date.getFullYear() +
-    "-" +
-    (month < 10 ? "0" : "") +
-    month +
-    "-" +
-    (day < 10 ? "0" : "") +
-    day;
-
-  return dateNow;
 }
 </script>

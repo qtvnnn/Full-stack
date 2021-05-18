@@ -70,5 +70,13 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: #b8bcc3;
 }
+
+.display-none{
+  display: none !important;
+}
+
+.display-block{
+  display: block !important;
+}
 @import "~bootstrap/dist/css/bootstrap.css";
 </style>
