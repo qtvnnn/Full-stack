@@ -280,9 +280,15 @@ select:focus {
                       class="form-control require-not-null"
                       type="text"
                       v-model="employee.EmployeeCode"
+                      @mouseover="mouseOverCode($event)"
+                      @mouseleave="mouseLeaveCode"
                     />
                   </div>
-                  <div class="alertToggleCode" style="display: none">
+                  <div
+                    class="alertToggleCode"
+                    ref="alertToggleCode"
+                    style="display: none"
+                  >
                     <span class="textAlertName"
                       >Mã nhân viên không được để trống</span
                     >
@@ -295,12 +301,14 @@ select:focus {
                   <div class="input-group">
                     <input
                       id="txtFullName"
+                      ref="txtFullName"
                       fieldName="FullName"
                       class="form-control require-not-null"
                       type="text"
                       required
                       v-model="employee.EmployeeName"
-                      @mouseover="mouseOver"
+                      @mouseover="mouseOverName($event)"
+                      @mouseleave="mouseLeaveName"
                     />
                   </div>
                   <div
@@ -320,11 +328,14 @@ select:focus {
                   <div class="input-group">
                     <select
                       id="cbnDepartment"
+                      ref="cbnDepartment"
                       fieldName="CustomerGroupName"
                       fieldValue="CustomerGroupId"
                       api="/api/customergroups"
                       class="form-control require-not-null"
                       v-model="employee.DepartmentId"
+                      @mouseover="mouseOverDepartment($event)"
+                      @mouseleave="mouseLeaveDepartment"
                     >
                       <option
                         v-for="department in departments"
@@ -335,7 +346,11 @@ select:focus {
                       </option>
                     </select>
                   </div>
-                  <div class="alertToggleDepartment" style="display: none">
+                  <div
+                    class="alertToggleDepartment"
+                    ref="alertToggleDepartment"
+                    style="display: none"
+                  >
                     <span class="textAlertName">Chưa chọn đơn vị.</span>
                   </div>
                 </div>
@@ -604,15 +619,51 @@ export default {
     positions: Array,
   },
   methods: {
-    
+    mouseOverName(value) {
+      let valueInput = value.target.value;
+      if (
+        !valueInput &&
+        this.$refs["txtFullName"].classList.contains("input-warning")
+      ) {
+        this.$refs["alertToggleName"].classList.add("display-block");
+      }
+    },
+    mouseOverCode(value) {
+      let valueInput = value.target.value;
+      if (
+        !valueInput &&
+        this.$refs["txtEmployeeCode"].classList.contains("input-warning")
+      ) {
+        this.$refs["alertToggleCode"].classList.add("display-block");
+      }
+    },
+    mouseOverDepartment(value) {
+      let valueInput = value.target.value;
+      if (
+        !valueInput &&
+        this.$refs["cbnDepartment"].classList.contains("input-warning")
+      ) {
+        this.$refs["alertToggleDepartment"].classList.add("display-block");
+      }
+    },
+    mouseLeaveName() {
+      this.$refs["alertToggleName"].classList.remove("display-block");
+    },
+    mouseLeaveCode() {
+      this.$refs["alertToggleCode"].classList.remove("display-block");
+    },
+    mouseLeaveDepartment() {
+      this.$refs["alertToggleDepartment"].classList.remove("display-block");
+    },
+
+
     // sự kiện đóng dialog input form
     btnCancelOnClick() {
       this.$emit("closePopup", true); //đóng dialog
       removeWarningEmpty(); // bỏ cảnh báo field input
       this.$refs["alertToggleName"].classList.remove("display-block");
-      // $(".alertToggleName").css("display", "none");
-      $(".alertToggleDepartment").css("display", "none");
-      $(".alertToggleCode").css("display", "none");
+      this.$refs["alertToggleDepartment"].classList.remove("display-block");
+      this.$refs["alertToggleCode"].classList.remove("display-block");
     },
 
     //thêm mới nhân viên
@@ -674,16 +725,14 @@ export default {
         }
       } else {
         warningEmpty(); // cảnh báo các field input chưa hợp lệ
-        if (!$("#txtFullName").val()) {
+        if (!this.$refs["txtFullName"].value) {
           this.$refs["alertToggleName"].classList.add("display-block");
-
-          // $(".alertToggleName").css("display", "block");
         }
-        if (!$("#txtEmployeeCode").val()) {
-          $(".alertToggleCode").css("display", "block");
+        if (!this.$refs["txtEmployeeCode"].value) {
+          this.$refs["alertToggleCode"].classList.add("display-block");
         }
-        if (!$("#cbnDepartment").val()) {
-          $(".alertToggleDepartment").css("display", "block");
+        if (!this.$refs["cbnDepartment"].value) {
+          this.$refs["alertToggleDepartment"].classList.add("display-block");
         }
       }
     },
@@ -729,17 +778,6 @@ $(document).ready(function () {
     $(this).removeClass("input-warning");
     $(".alertToggleName").css("display", "none");
   });
-
-  $("#txtFullName").hover(
-    function () {
-      if (!$(this).val() && $(this).hasClass("input-warning")) {
-        $(".alertToggleName").css("display", "block");
-      }
-    },
-    function () {
-      $(".alertToggleName").css("display", "none");
-    }
-  );
 
   // mã nhân viên
   $(document).on("keydown", "#txtEmployeeCode", function () {
